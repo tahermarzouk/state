@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import DateNow from './component/DateNow';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+ 
+class Toggle extends React.Component {
+  
+    state = { 
+      person : {
+    fullName : "Taher Marzouk"
+    ,bio :"hello I am taher "
+    
+  },
+  show: true,
+  time : new Date(), }
 
-export default App;
+  toggle = () => this.setState((currentState) => ({show: !currentState.show})) ;
+  
+
+
+
+  render() {
+    return(
+    <div >
+      <button onClick={this.toggle}>
+          
+        </button>    
+    {this.state.show  && <div style={{marginLeft:'200px'}}><img  src = "ava.png" alt = "hello" /><br/>{this.state.person.fullName}<br/>{this.state.person.bio}<br/>{this.state.person.profession}</div>}
+    <DateNow/>
+    </div>);
+  
+  }
+  }
+
+
+  export default Toggle;
